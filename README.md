@@ -3,6 +3,10 @@
 **Ada** (Turkish for *island*) is a tiny "dynamic island" for the Windows desktop: now playing, a live spectrum equalizer, media and volume controls, and a pomodoro focus timer. Nord colors, one C# file, built with the compiler that already ships with Windows.
 
 <p align="center">
+  <img src="docs/demo.gif" alt="Ada: live equalizer, hover controls and mouse-wheel volume" width="540">
+</p>
+
+<p align="center">
   <img src="docs/open.png" alt="Ada showing the current song" width="540"><br>
   <img src="docs/hover.png" alt="Hover: previous, play/pause, next, mute" width="540"><br>
   <img src="docs/idle.png" alt="Idle pill" width="540"><br>
@@ -25,6 +29,12 @@
 - Windows 10 (version 2004 or later) or Windows 11
 - .NET Framework 4.8 (already part of Windows)
 - A [Nerd Font](https://www.nerdfonts.com/) for the icons: Ada uses **JetBrainsMono Nerd Font Propo** (`JetBrainsMono NFP`). Without it, the icons show up as boxes.
+
+## Download
+
+Grab `Ada.exe` from the [latest release](https://github.com/ziyaduru/W11sland/releases/latest). It is a single ~40 KB file with no installer.
+
+The exe is not code-signed, so Windows SmartScreen may warn you the first time: click **More info → Run anyway**. If you'd rather not trust a binary, build it yourself; it takes about a second.
 
 ## Build
 

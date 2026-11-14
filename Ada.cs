@@ -1066,15 +1066,22 @@ class AdaForm : Form
                 }
         }
 
-        // controls (hover)
+        // controls (hover); clipped to the pill, because while the pill shrinks faster than
+        // the controls fade, they would otherwise poke out past its right edge
         if (ctrlA > 0.01f)
         {
             int ca = (int)(255 * ctrlA * textA);
             var rects = ControlRects();
-            DrawCentered(g, GPrev, fGlyph, Color.FromArgb(ca, Snow), rects[0]);
-            DrawCentered(g, media.Playing ? GPause : GPlay, fGlyphBig, Color.FromArgb(ca, accent), rects[1]);
-            DrawCentered(g, GNext, fGlyph, Color.FromArgb(ca, Snow), rects[2]);
-            DrawCentered(g, VolGlyph(), fGlyph, Color.FromArgb(ca, muted ? Dim : Snow), rects[3]);
+            using (var clip = Round(r, r.Height / 2))
+            {
+                var st = g.Save();
+                g.SetClip(clip);
+                DrawCentered(g, GPrev, fGlyph, Color.FromArgb(ca, Snow), rects[0]);
+                DrawCentered(g, media.Playing ? GPause : GPlay, fGlyphBig, Color.FromArgb(ca, accent), rects[1]);
+                DrawCentered(g, GNext, fGlyph, Color.FromArgb(ca, Snow), rects[2]);
+                DrawCentered(g, VolGlyph(), fGlyph, Color.FromArgb(ca, muted ? Dim : Snow), rects[3]);
+                g.Restore(st);
+            }
         }
     }
 
